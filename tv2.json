@@ -248,7 +248,7 @@
                      "type": "count"
                   }
                ],
-               "query": "service.keyword:/(proxy|adapter|provider)-.*/ AND @severity:ERROR",
+               "query": "/(proxy|adapter|provider)-.*/ AND @severity:ERROR",
                "refId": "A",
                "timeField": "@timestamp"
             },
