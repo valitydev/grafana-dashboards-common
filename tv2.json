@@ -628,7 +628,7 @@
                      "type": "count"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND invoice_payment_event.status:captured AND invoice_payment_event.invoice.owner_id:\"c35cd117-bff6-4e84-aece-60137e1b0c15\"",
+               "query": "kubernetes.pod.name:hellgate AND invoice_payment_event.status:captured AND invoice_payment_event.invoice.owner_id:\"281220eb-a4ef-4d03-b666-bdec4b26c5f7\"",
                "refId": "A",
                "timeField": "@timestamp"
             },
@@ -669,7 +669,7 @@
                      "type": "cardinality"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND invoice_event.type:\"invoice_created\" AND invoice_event.owner_id:\"c35cd117-bff6-4e84-aece-60137e1b0c15\"",
+               "query": "kubernetes.pod.name:hellgate AND invoice_event.type:\"invoice_created\" AND invoice_event.owner_id:\"281220eb-a4ef-4d03-b666-bdec4b26c5f7\"",
                "refId": "B",
                "timeField": "@timestamp"
             },
@@ -710,7 +710,7 @@
                      "type": "cardinality"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND invoice_payment_event.status:captured AND invoice_payment_event.invoice.owner_id:\"c35cd117-bff6-4e84-aece-60137e1b0c15\"",
+               "query": "kubernetes.pod.name:hellgate AND invoice_payment_event.status:captured AND invoice_payment_event.invoice.owner_id:\"281220eb-a4ef-4d03-b666-bdec4b26c5f7\"",
                "refId": "C",
                "timeField": "@timestamp"
             }
