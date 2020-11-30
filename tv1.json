@@ -260,6 +260,621 @@
                "show": true
             }
          ]
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 16,
+            "y": 0
+         },
+         "id": 4,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "/WARN/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/ERROR/",
+               "color": "#bf1b00",
+               "zindex": "-1"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "Shumway {{term @severity.keyword}}",
+               "bucketAggs": [
+                  {
+                     "fake": true,
+                     "field": "@severity.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
+                  }
+               ],
+               "query": "kubernetes.pod.name:shumway AND (@severity:WARN OR @severity:ERROR)",
+               "refId": "A",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Shumway warnings and errors",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 0,
+            "y": 5
+         },
+         "id": 5,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "/warning/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/error/",
+               "color": "#bf1b00",
+               "zindex": "-1"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "dominant {{term @severity.keyword}}",
+               "bucketAggs": [
+                  {
+                     "fake": true,
+                     "field": "@severity.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
+                  }
+               ],
+               "query": "kubernetes.pod.name:dominant AND (@severity:warning OR @severity:error)",
+               "refId": "A",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Dominant warnings and errors",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 8,
+            "y": 5
+         },
+         "id": 6,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "/WARN/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/ERROR/",
+               "color": "#bf1b00",
+               "zindex": "-1"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "reporter {{term @severity.keyword}}",
+               "bucketAggs": [
+                  {
+                     "fake": true,
+                     "field": "@severity.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
+                  }
+               ],
+               "query": "kubernetes.pod.name:reporter AND (@severity:warning OR @severity:error)",
+               "refId": "A",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Reporter warnings and errors ",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 16,
+            "y": 5
+         },
+         "id": 7,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "/WARN/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/ERROR/",
+               "color": "#bf1b00",
+               "zindex": "-1"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "Payouter {{term @severity.keyword}}",
+               "bucketAggs": [
+                  {
+                     "fake": true,
+                     "field": "@severity.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
+                  }
+               ],
+               "query": "kubernetes.pod.name:payouter AND (@severity:warning OR @severity:error)",
+               "refId": "A",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Payouter warnings and errors ",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 0,
+            "y": 10
+         },
+         "id": 8,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "HG {{term @severity.keyword}}",
+               "bucketAggs": [
+                  {
+                     "fake": true,
+                     "field": "@severity.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
+                  }
+               ],
+               "query": "FACILITY:kern AND (MESSAGE.keyword:/.* Memory cgroup out of memory.*/ OR MESSAGE.keyword:/.*Out of memory: Kill process.*/)",
+               "refId": "A",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Out of memory messages",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
       }
    ],
    "refresh": "",
