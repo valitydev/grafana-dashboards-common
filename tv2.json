@@ -362,10 +362,22 @@
                "alias": null,
                "bucketAggs": [
                   {
+                     "fake": true,
+                     "field": "machine_ns.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "0"
+                     },
+                     "type": "terms"
+                  },
+                  {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
-                        "interval": "10m",
+                        "interval": "1m",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -375,11 +387,8 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "request_length",
-                     "inlineScript": null,
-                     "meta": { },
-                     "pipelineAgg": "select metric",
-                     "settings": { },
+                     "field": "select field",
+                     "id": "1",
                      "type": "count"
                   }
                ],
