@@ -1076,7 +1076,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -1100,7 +1100,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
@@ -1111,17 +1111,41 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
                "alias": null,
                "bucketAggs": [
                   {
+                     "fake": true,
+                     "field": "status",
+                     "id": "4",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "10"
+                     },
+                     "type": "terms"
+                  },
+                  {
+                     "fake": true,
+                     "field": "http_host.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_term",
+                        "size": "0"
+                     },
+                     "type": "terms"
+                  },
+                  {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
-                        "interval": "10m",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1131,11 +1155,8 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "request_length",
-                     "inlineScript": null,
-                     "meta": { },
-                     "pipelineAgg": "select metric",
-                     "settings": { },
+                     "field": "select field",
+                     "id": "1",
                      "type": "count"
                   }
                ],
