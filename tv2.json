@@ -185,7 +185,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -209,7 +209,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
@@ -220,7 +220,7 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
@@ -320,7 +320,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -344,7 +344,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
@@ -355,7 +355,7 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
@@ -426,7 +426,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -450,7 +450,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
@@ -461,7 +461,7 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
@@ -565,7 +565,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -600,17 +600,29 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
                "alias": null,
                "bucketAggs": [
                   {
+                     "fake": true,
+                     "field": "host.name.keyword",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_count",
+                        "size": "0"
+                     },
+                     "type": "terms"
+                  },
+                  {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
-                        "interval": "10m",
+                        "interval": "1m",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -620,12 +632,11 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "request_length",
-                     "inlineScript": null,
+                     "field": "invoice_payment_event.invoice.id",
+                     "id": "1",
                      "meta": { },
-                     "pipelineAgg": "select metric",
                      "settings": { },
-                     "type": "count"
+                     "type": "cardinality"
                   }
                ],
                "query": "kubernetes.pod.name:hellgate AND invoice_payment_event.status:captured AND invoice_payment_event.invoice.owner_id:\"281220eb-a4ef-4d03-b666-bdec4b26c5f7\"",
@@ -633,26 +644,14 @@
                "timeField": "@timestamp"
             },
             {
-               "alias": null,
+               "alias": "Invoices",
                "bucketAggs": [
-                  {
-                     "fake": true,
-                     "field": "invoice_payment_event.status.keyword",
-                     "id": "3",
-                     "settings": {
-                        "min_doc_count": 1,
-                        "order": "desc",
-                        "orderBy": "_count",
-                        "size": "0"
-                     },
-                     "type": "terms"
-                  },
                   {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
                         "interval": "1m",
-                        "min_doc_count": 1,
+                        "min_doc_count": 0,
                         "trimEdges": 0
                      },
                      "type": "date_histogram"
@@ -661,10 +660,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "span_id",
-                     "id": 1,
+                     "field": "invoice_event.id.keyword",
+                     "id": "1",
                      "meta": { },
-                     "pipelineAgg": "cardinality",
                      "settings": { },
                      "type": "cardinality"
                   }
@@ -674,26 +672,14 @@
                "timeField": "@timestamp"
             },
             {
-               "alias": null,
+               "alias": "Total captured",
                "bucketAggs": [
-                  {
-                     "fake": true,
-                     "field": "invoice_payment_event.status.keyword",
-                     "id": "3",
-                     "settings": {
-                        "min_doc_count": 1,
-                        "order": "desc",
-                        "orderBy": "_count",
-                        "size": "0"
-                     },
-                     "type": "terms"
-                  },
                   {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
                         "interval": "1m",
-                        "min_doc_count": 1,
+                        "min_doc_count": 0,
                         "trimEdges": 0
                      },
                      "type": "date_histogram"
@@ -702,10 +688,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "span_id",
-                     "id": 1,
+                     "field": "invoice_payment_event.invoice.id",
+                     "id": "1",
                      "meta": { },
-                     "pipelineAgg": "cardinality",
                      "settings": { },
                      "type": "cardinality"
                   }
@@ -753,7 +738,7 @@
       },
       {
          "aliasColors": { },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
@@ -777,7 +762,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
@@ -788,17 +773,29 @@
          "repeat": null,
          "seriesOverrides": [ ],
          "spaceLength": 10,
-         "stack": false,
+         "stack": true,
          "steppedLine": false,
          "targets": [
             {
                "alias": null,
                "bucketAggs": [
                   {
+                     "fake": true,
+                     "field": "invoice_payment_event.error",
+                     "id": "3",
+                     "settings": {
+                        "min_doc_count": 1,
+                        "order": "desc",
+                        "orderBy": "_count",
+                        "size": "9"
+                     },
+                     "type": "terms"
+                  },
+                  {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
-                        "interval": "10m",
+                        "interval": "1m",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -808,12 +805,11 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "request_length",
-                     "inlineScript": null,
+                     "field": "span_id",
+                     "id": "1",
                      "meta": { },
-                     "pipelineAgg": "select metric",
                      "settings": { },
-                     "type": "count"
+                     "type": "cardinality"
                   }
                ],
                "query": "kubernetes.pod.name:hellgate AND  invoice_payment_event.type:invoice_payment_status_changed AND  invoice_payment_event.status:failed",
@@ -1356,7 +1352,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1364,10 +1360,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "1m",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1377,23 +1373,21 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "invoice_event.id",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND invoice_event.type:\"invoice_created\" AND NOT invoice_event.shop_id:(\"TEST\" OR \"1\")",
+               "query": "kubernetes.pod.name:hellgate AND invoice_event.type:\"invoice_created\"",
                "refId": "A",
                "timeField": "@timestamp"
             }
          ],
          "thresholds": "",
          "title": "IPM avg",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1403,7 +1397,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       },
       {
          "cacheTimeout": null,
@@ -1462,7 +1456,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1470,10 +1464,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1483,14 +1477,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
                   }
                ],
                "query": "kubernetes.pod.name:hellgate AND NOT invoice_payment_event.status:processed",
@@ -1500,6 +1489,7 @@
          ],
          "thresholds": "",
          "title": "PPM avg",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1509,7 +1499,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       },
       {
          "cacheTimeout": null,
@@ -1568,7 +1558,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1576,10 +1566,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1589,14 +1579,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
                   }
                ],
                "query": "source:\"/var/lib/docker/containers\" AND status:502",
@@ -1606,6 +1591,7 @@
          ],
          "thresholds": "",
          "title": "HTTP 502 24h",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1615,7 +1601,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       },
       {
          "cacheTimeout": null,
@@ -1674,7 +1660,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1682,10 +1668,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1695,14 +1681,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
                   }
                ],
                "query": "source:\"/var/lib/docker/containers\" AND status:504",
@@ -1712,6 +1693,7 @@
          ],
          "thresholds": "",
          "title": "HTTP 504 24h",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1721,7 +1703,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       },
       {
          "cacheTimeout": null,
@@ -1780,7 +1762,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1788,10 +1770,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1801,14 +1783,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
                   }
                ],
                "query": "kubernetes.pod.name:machinegun AND @severity:error AND \"machine failed\" AND machine_ns.keyword:invoice",
@@ -1818,6 +1795,7 @@
          ],
          "thresholds": "",
          "title": "Invoice fails 24h",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1827,7 +1805,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       },
       {
          "cacheTimeout": null,
@@ -1886,7 +1864,7 @@
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
          },
          "tableColumn": "",
          "targets": [
@@ -1894,10 +1872,10 @@
                "alias": null,
                "bucketAggs": [
                   {
-                     "field": "timestamp",
-                     "id": null,
+                     "field": "@timestamp",
+                     "id": "2",
                      "settings": {
-                        "interval": "1s",
+                        "interval": "auto",
                         "min_doc_count": 0,
                         "trimEdges": 0
                      },
@@ -1907,14 +1885,9 @@
                "id": null,
                "metrics": [
                   {
-                     "field": "value",
-                     "id": null,
-                     "settings": {
-                        "percents": [
-                           "90"
-                        ]
-                     },
-                     "type": "percentiles"
+                     "field": "select field",
+                     "id": "1",
+                     "type": "count"
                   }
                ],
                "query": "kubernetes.pod.name:machinegun AND @severity:error AND \"machine failed\" AND NOT machine_ns.keyword:invoice",
@@ -1924,6 +1897,7 @@
          ],
          "thresholds": "",
          "title": "Other machine fails 24h",
+         "transparent": true,
          "type": "singlestat",
          "valueFontSize": "80%",
          "valueMaps": [
@@ -1933,7 +1907,7 @@
                "value": "null"
             }
          ],
-         "valueName": "current"
+         "valueName": "avg"
       }
    ],
    "refresh": "",
