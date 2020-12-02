@@ -489,30 +489,6 @@
                      "type": "terms"
                   },
                   {
-                     "fake": true,
-                     "field": "service.keyword",
-                     "id": "6",
-                     "settings": {
-                        "min_doc_count": 1,
-                        "order": "desc",
-                        "orderBy": "_count",
-                        "size": "0"
-                     },
-                     "type": "terms"
-                  },
-                  {
-                     "fake": true,
-                     "field": "operation_id.keyword",
-                     "id": "3",
-                     "settings": {
-                        "min_doc_count": 1,
-                        "order": "desc",
-                        "orderBy": "_count",
-                        "size": "0"
-                     },
-                     "type": "terms"
-                  },
-                  {
                      "field": "@timestamp",
                      "id": "2",
                      "settings": {
