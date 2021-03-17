@@ -1536,7 +1536,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "Accounter.",
+         "title": "Accounter",
          "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1840,7 +1840,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "InspectorProxy.",
+         "title": "InspectorProxy",
          "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1992,7 +1992,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "ProviderProxy.",
+         "title": "ProviderProxy",
          "tooltip": {
             "shared": true,
             "sort": 0,
@@ -2144,7 +2144,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "FaultDetector.",
+         "title": "FaultDetector",
          "tooltip": {
             "shared": true,
             "sort": 0,
@@ -5260,7 +5260,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "Accounter.",
+         "title": "Accounter",
          "tooltip": {
             "shared": true,
             "sort": 0,
