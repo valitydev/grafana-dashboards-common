@@ -101,7 +101,7 @@
                      "type": "percentiles"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "query": "service.keyword:hellgate AND rpc.server.service.keyword:Invoicing AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:Automaton AND rpc.client.function.keyword:GetMachine",
                "refId": "A",
                "timeField": "@timestamp"
             },
@@ -129,7 +129,7 @@
                      "type": "count"
                   }
                ],
-               "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "query": "service.keyword:hellgate AND rpc.server.service.keyword:Invoicing AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:Automaton AND rpc.client.function.keyword:GetMachine",
                "refId": "B",
                "timeField": "@timestamp"
             }
@@ -154,6 +154,14 @@
          "yaxes": [
             {
                "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
                "label": null,
                "logBase": 1,
                "max": null,
