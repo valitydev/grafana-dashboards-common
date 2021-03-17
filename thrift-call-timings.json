@@ -15,7 +15,7 @@
          "collapse": false,
          "collapsed": false,
          "gridPos": {
-            "h": 2,
+            "h": 1,
             "w": 24,
             "x": 0,
             "y": 0
@@ -42,6 +42,12 @@
          "dashes": false,
          "datasource": "rbkm-elasticsearch",
          "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 1
+         },
          "id": 3,
          "legend": {
             "alignAsTable": false,
@@ -107,7 +113,7 @@
                      "type": "percentiles"
                   }
                ],
-               "query": "service.keyword:hellgate AND rpc.server.service.keyword:Invoicing AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:Automaton AND rpc.client.function.keyword:GetMachine",
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
                "refId": "A",
                "timeField": "@timestamp"
             },
@@ -135,7 +141,7 @@
                      "type": "count"
                   }
                ],
-               "query": "service.keyword:hellgate AND rpc.server.service.keyword:Invoicing AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:Automaton AND rpc.client.function.keyword:GetMachine",
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
                "refId": "B",
                "timeField": "@timestamp"
             }
@@ -177,9 +183,623 @@
          ]
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 1
+         },
+         "id": 4,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Call",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 7
+         },
+         "id": 5,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Start",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 7
+         },
+         "id": 6,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"GetRevision\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"GetRevision\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.GetRevision",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 13
+         },
+         "id": 7,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"Checkout\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"Checkout\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.Checkout",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 4,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 19
+         },
+         "id": 8,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -190,9 +810,1383 @@
          "type": "row"
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 20
+         },
+         "id": 9,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"GetRevision\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"GetRevision\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.GetRevision",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 20
+         },
+         "id": 10,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"Checkout\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"Checkout\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.Checkout",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 26
+         },
+         "id": 11,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeContractTerms\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeContractTerms\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.ComputeContractTerms",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 26
+         },
+         "id": 12,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeProvider\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeProvider\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.ComputeProvider",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 32
+         },
+         "id": 13,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Accounter\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Accounter\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Accounter.",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 32
+         },
+         "id": 14,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeProviderTerminalTerms\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"PartyManagement\" AND rpc.client.function.keyword:\"ComputeProviderTerminalTerms\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "PartyManagement.ComputeProviderTerminalTerms",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 38
+         },
+         "id": 15,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"InspectorProxy\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"InspectorProxy\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "InspectorProxy.",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 38
+         },
+         "id": 16,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"ProviderProxy\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"ProviderProxy\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "ProviderProxy.",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 44
+         },
+         "id": 17,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"FaultDetector\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"Processor\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"FaultDetector\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "FaultDetector.",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 5,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 50
+         },
+         "id": 18,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -203,9 +2197,471 @@
          "type": "row"
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 51
+         },
+         "id": 19,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.GetMachine",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 51
+         },
+         "id": 20,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Call",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 57
+         },
+         "id": 21,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"bender\" AND rpc.server.service.keyword:\"Bender\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Start",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 6,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 63
+         },
+         "id": 22,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -216,9 +2672,1383 @@
          "type": "row"
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 64
+         },
+         "id": 23,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GenerateID\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GenerateID\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Bender.GenerateID",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 64
+         },
+         "id": 24,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GetInternalID\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GetInternalID\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Bender.GetInternalID",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 70
+         },
+         "id": 25,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"Create\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"Create\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.Create",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 70
+         },
+         "id": 26,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"CreateWithTemplate\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"CreateWithTemplate\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.CreateWithTemplate",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 76
+         },
+         "id": 27,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"GetEvents\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"GetEvents\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.GetEvents",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 76
+         },
+         "id": 28,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"Get\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"Get\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.Get",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 82
+         },
+         "id": 29,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"StartPayment\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"StartPayment\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.StartPayment",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 82
+         },
+         "id": 30,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"InvoiceTemplating\" AND rpc.client.function.keyword:\"ComputeTerms\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"InvoiceTemplating\" AND rpc.client.function.keyword:\"ComputeTerms\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "InvoiceTemplating.ComputeTerms",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 88
+         },
+         "id": 31,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"ComputeTerms\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Invoicing\" AND rpc.client.function.keyword:\"ComputeTerms\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Invoicing.ComputeTerms",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 7,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 94
+         },
+         "id": 32,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -229,9 +4059,775 @@
          "type": "row"
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 95
+         },
+         "id": 33,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GenerateID\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GenerateID\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Bender.GenerateID",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 95
+         },
+         "id": 34,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GetInternalID\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Bender\" AND rpc.client.function.keyword:\"GetInternalID\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Bender.GetInternalID",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 101
+         },
+         "id": 35,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Storage\" AND rpc.client.function.keyword:\"PutCard\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Storage\" AND rpc.client.function.keyword:\"PutCard\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "CDS.PutCard",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 101
+         },
+         "id": 36,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Storage\" AND rpc.client.function.keyword:\"PutSession\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Storage\" AND rpc.client.function.keyword:\"PutSession\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "CDS.PutSession",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 107
+         },
+         "id": 37,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Binbase\" AND rpc.client.function.keyword:\"Lookup\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"capi-v2-pcidss\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Binbase\" AND rpc.client.function.keyword:\"Lookup\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Binbase.Lookup",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 8,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 113
+         },
+         "id": 38,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -242,9 +4838,623 @@
          "type": "row"
       },
       {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 114
+         },
+         "id": 39,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.GetMachine",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 114
+         },
+         "id": 40,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Call\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Call",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 120
+         },
+         "id": 41,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Accounter\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Accounter\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Accounter.",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 120
+         },
+         "id": 42,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"hellgate\" AND rpc.server.service.keyword:\"PartyManagement\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"Start\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.Start",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
          "collapse": false,
          "collapsed": false,
-         "id": 9,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 113
+         },
+         "id": 43,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -253,6 +5463,310 @@
          "title": "Machinegun",
          "titleSize": "h6",
          "type": "row"
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 127
+         },
+         "id": 44,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"machinegun\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Processor\" AND rpc.client.function.keyword:\"ProcessSignal\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"machinegun\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Processor\" AND rpc.client.function.keyword:\"ProcessSignal\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Processor.ProcessSignal",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 127
+         },
+         "id": 45,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "service.keyword:\"machinegun\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Processor\" AND rpc.client.function.keyword:\"ProcessCall\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "service.keyword:\"machinegun\" AND rpc.client.event:\"service result\"  AND rpc.client.service.keyword:\"Processor\" AND rpc.client.function.keyword:\"ProcessCall\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Processor.ProcessCall",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
       }
    ],
    "refresh": "1m",
