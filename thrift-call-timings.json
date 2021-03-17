@@ -14,6 +14,12 @@
       {
          "collapse": false,
          "collapsed": false,
+         "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 0
+         },
          "id": 2,
          "panels": [ ],
          "repeat": null,
