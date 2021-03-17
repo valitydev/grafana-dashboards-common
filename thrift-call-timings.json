@@ -10,11 +10,11 @@
    "hideControls": false,
    "id": null,
    "links": [ ],
-   "refresh": "1m",
-   "rows": [
+   "panels": [
       {
          "collapse": false,
          "collapsed": false,
+         "id": 2,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -27,6 +27,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 3,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -39,6 +40,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 4,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -51,6 +53,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 5,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -63,6 +66,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 6,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -75,6 +79,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 7,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -87,6 +92,7 @@
       {
          "collapse": false,
          "collapsed": false,
+         "id": 8,
          "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
@@ -97,6 +103,8 @@
          "type": "row"
       }
    ],
+   "refresh": "1m",
+   "rows": [ ],
    "schemaVersion": 14,
    "style": "dark",
    "tags": [ ],
