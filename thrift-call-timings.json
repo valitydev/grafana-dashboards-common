@@ -15,146 +15,7 @@
          "collapse": false,
          "collapsed": false,
          "id": 2,
-         "panels": [
-            {
-               "aliasColors": {
-                  "count": "rgba(239, 132, 60, 0.34)",
-                  "p50.0": "#bf1b00",
-                  "p95.0": "#e5ac0e",
-                  "p98.0": "#7eb26d"
-               },
-               "bars": false,
-               "dashLength": 10,
-               "dashes": false,
-               "datasource": "rbkm-elasticsearch",
-               "fill": 1,
-               "id": 3,
-               "legend": {
-                  "alignAsTable": false,
-                  "avg": false,
-                  "current": false,
-                  "max": false,
-                  "min": false,
-                  "rightSide": false,
-                  "show": false,
-                  "sideWidth": null,
-                  "total": false,
-                  "values": false
-               },
-               "lines": false,
-               "linewidth": 1,
-               "links": [ ],
-               "nullPointMode": "null",
-               "percentage": false,
-               "pointradius": 3,
-               "points": true,
-               "renderer": "flot",
-               "repeat": null,
-               "seriesOverrides": [
-                  {
-                     "alias": "count",
-                     "bars": true,
-                     "points": false,
-                     "yaxis": 2,
-                     "zindex": -1
-                  }
-               ],
-               "spaceLength": 10,
-               "stack": false,
-               "steppedLine": false,
-               "targets": [
-                  {
-                     "alias": "{{metric}}",
-                     "bucketAggs": [
-                        {
-                           "field": "@timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "1m",
-                              "min_doc_count": 0,
-                              "trimEdges": 0
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "id": null,
-                     "metrics": [
-                        {
-                           "field": "rpc.client.execution_duration_ms",
-                           "id": "1",
-                           "meta": { },
-                           "settings": {
-                              "percents": [
-                                 "50",
-                                 "95",
-                                 "98"
-                              ]
-                           },
-                           "type": "percentiles"
-                        }
-                     ],
-                     "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
-                     "refId": "A",
-                     "timeField": "@timestamp"
-                  },
-                  {
-                     "alias": "count",
-                     "bucketAggs": [
-                        {
-                           "field": "@timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "1m",
-                              "min_doc_count": 0,
-                              "trimEdges": 0
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "id": null,
-                     "metrics": [
-                        {
-                           "field": "rpc.client.execution_duration_ms",
-                           "id": "1",
-                           "meta": { },
-                           "settings": { },
-                           "type": "count"
-                        }
-                     ],
-                     "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
-                     "refId": "B",
-                     "timeField": "@timestamp"
-                  }
-               ],
-               "thresholds": [ ],
-               "timeFrom": null,
-               "timeShift": null,
-               "title": "Automaton.GetMachine",
-               "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-               },
-               "type": "graph",
-               "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": [ ]
-               },
-               "yaxes": [
-                  {
-                     "format": "ms",
-                     "label": null,
-                     "logBase": 1,
-                     "max": null,
-                     "min": 0,
-                     "show": true
-                  }
-               ]
-            }
-         ],
+         "panels": [ ],
          "repeat": null,
          "repeatIteration": null,
          "repeatRowId": null,
@@ -162,6 +23,144 @@
          "title": "Invoicing",
          "titleSize": "h6",
          "type": "row"
+      },
+      {
+         "aliasColors": {
+            "count": "rgba(239, 132, 60, 0.34)",
+            "p50.0": "#bf1b00",
+            "p95.0": "#e5ac0e",
+            "p98.0": "#7eb26d"
+         },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-elasticsearch",
+         "fill": 1,
+         "id": 3,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 3,
+         "points": true,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [
+            {
+               "alias": "count",
+               "bars": true,
+               "points": false,
+               "yaxis": 2,
+               "zindex": -1
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "alias": "{{metric}}",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": {
+                        "percents": [
+                           "50",
+                           "95",
+                           "98"
+                        ]
+                     },
+                     "type": "percentiles"
+                  }
+               ],
+               "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "A",
+               "timeField": "@timestamp"
+            },
+            {
+               "alias": "count",
+               "bucketAggs": [
+                  {
+                     "field": "@timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "1m",
+                        "min_doc_count": 0,
+                        "trimEdges": 0
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "id": null,
+               "metrics": [
+                  {
+                     "field": "rpc.client.execution_duration_ms",
+                     "id": "1",
+                     "meta": { },
+                     "settings": { },
+                     "type": "count"
+                  }
+               ],
+               "query": "kubernetes.pod.name:hellgate AND rpc.server.service.keyword:\"Invoicing\" AND rpc.client.event:\"service result\" AND rpc.client.service.keyword:\"Automaton\" AND rpc.client.function.keyword:\"GetMachine\"",
+               "refId": "B",
+               "timeField": "@timestamp"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Automaton.GetMachine",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
       },
       {
          "collapse": false,
