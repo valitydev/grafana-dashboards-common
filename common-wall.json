@@ -65,6 +65,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Created invoices",
@@ -851,6 +852,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -1024,6 +1026,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -1236,6 +1239,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -1342,6 +1346,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -1459,6 +1464,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -1577,6 +1583,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "HG warning",
@@ -1702,6 +1709,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -1817,6 +1825,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Request",
@@ -1930,6 +1939,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Count",
@@ -2079,6 +2089,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Count",
@@ -2228,6 +2239,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Count",
@@ -2401,6 +2413,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Count",
@@ -2550,6 +2563,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "Count",
@@ -2699,6 +2713,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -3122,6 +3137,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "MG warning",
@@ -3266,6 +3282,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "/alert.+/",
@@ -3390,6 +3407,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "/alert.+/",
@@ -3514,6 +3532,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -3641,6 +3660,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "/alert.+/",
@@ -3765,6 +3785,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "/alert.+/",
@@ -3889,6 +3910,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "/alert.+/",
@@ -4013,6 +4035,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -4136,6 +4159,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -4259,6 +4283,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -4382,6 +4407,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -4524,6 +4550,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -4651,6 +4678,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -4766,6 +4794,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -4883,6 +4912,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -5010,6 +5040,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -5131,6 +5162,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -5252,6 +5284,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -5379,6 +5412,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -5499,6 +5533,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -5639,6 +5674,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -5756,6 +5792,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,
@@ -5875,6 +5912,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": true,

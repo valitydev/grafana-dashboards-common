@@ -70,6 +70,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -222,6 +223,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -374,6 +376,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -526,6 +529,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -678,6 +682,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -849,6 +854,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1001,6 +1007,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1153,6 +1160,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1305,6 +1313,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1457,6 +1466,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1609,6 +1619,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1761,6 +1772,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -1913,6 +1925,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2065,6 +2078,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2236,6 +2250,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2388,6 +2403,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2540,6 +2556,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2711,6 +2728,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -2863,6 +2881,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3015,6 +3034,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3167,6 +3187,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3319,6 +3340,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3471,6 +3493,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3623,6 +3646,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3775,6 +3799,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -3927,6 +3952,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4098,6 +4124,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4250,6 +4277,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4402,6 +4430,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4554,6 +4583,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4706,6 +4736,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -4877,6 +4908,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -5029,6 +5061,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -5181,6 +5214,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -5333,6 +5367,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -5504,6 +5539,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
@@ -5656,6 +5692,7 @@
          "points": true,
          "renderer": "flot",
          "repeat": null,
+         "repeatDirection": "h",
          "seriesOverrides": [
             {
                "alias": "count",
