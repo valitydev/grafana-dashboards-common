@@ -49,6 +49,7 @@
          "points": false,
          "renderer": "flot",
          "repeat": "service",
+         "repeatMaxPerRow": 2,
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
