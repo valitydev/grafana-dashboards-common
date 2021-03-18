@@ -49,13 +49,6 @@
          "points": false,
          "renderer": "flot",
          "repeat": "service",
-         "scopedVars": {
-            "service": {
-               "selected": false,
-               "text": null,
-               "value": null
-            }
-         },
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
@@ -109,7 +102,7 @@
                      "type": "count"
                   }
                ],
-               "query": "!(_exists_:\"trace_id\") AND message:\"Handler default switched from  drop to sync mode\" AND service.keyword:\"[[service]]\"",
+               "query": "!(_exists_:\"trace_id\") AND message:\"Handler default switched from  async to drop mode\" AND service.keyword:\"[[service]]\"",
                "refId": "B",
                "timeField": "@timestamp"
             }
