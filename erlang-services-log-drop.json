@@ -1408,69 +1408,7 @@
    "style": "dark",
    "tags": [ ],
    "templating": {
-      "list": [
-         {
-            "allValue": null,
-            "current": {
-               "text": "All",
-               "value": "$__all"
-            },
-            "hide": 0,
-            "includeAll": true,
-            "label": "",
-            "multi": false,
-            "name": "service",
-            "options": [
-               {
-                  "text": "All",
-                  "value": "$__all"
-               },
-               {
-                  "text": "machinegun",
-                  "value": "machinegun"
-               },
-               {
-                  "text": "hellgate",
-                  "value": "hellgate"
-               },
-               {
-                  "text": "capi-v1",
-                  "value": "capi-v1"
-               },
-               {
-                  "text": "capi-v2",
-                  "value": "capi-v2"
-               },
-               {
-                  "text": "capi-v1-pcidss",
-                  "value": "capi-v1-pcidss"
-               },
-               {
-                  "text": "capi-v2-pcidss",
-                  "value": "capi-v2-pcidss"
-               },
-               {
-                  "text": "wapi",
-                  "value": "wapi"
-               },
-               {
-                  "text": "wapi-pcidss",
-                  "value": "wapi-pcidss"
-               },
-               {
-                  "text": "bender",
-                  "value": "bender"
-               },
-               {
-                  "text": "dominant",
-                  "value": "dominant"
-               }
-            ],
-            "query": "machinegun,hellgate,capi-v1,capi-v2,capi-v1-pcidss,capi-v2-pcidss,wapi,wapi-pcidss,bender,dominant",
-            "refresh": 0,
-            "type": "custom"
-         }
-      ]
+      "list": [ ]
    },
    "time": {
       "from": "now-6h",
