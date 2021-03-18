@@ -50,7 +50,7 @@
          "renderer": "flot",
          "repeat": "service",
          "repeatDirection": "h",
-         "repeatMaxPerRow": 2,
+         "repeatMaxPerRow": "2",
          "seriesOverrides": [ ],
          "spaceLength": 10,
          "stack": false,
