@@ -1417,7 +1417,7 @@
             },
             "hide": 0,
             "includeAll": true,
-            "label": "",
+            "label": null,
             "multi": false,
             "name": "service",
             "options": [
