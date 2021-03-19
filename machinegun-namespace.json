@@ -35,7 +35,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -120,7 +120,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -205,7 +205,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -294,7 +294,7 @@
          "bars": false,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -412,7 +412,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -561,7 +561,7 @@
          "bars": false,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -658,7 +658,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -759,7 +759,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -915,7 +915,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -1016,7 +1016,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -1125,7 +1125,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1214,7 +1214,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1317,7 +1317,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1416,7 +1416,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1523,7 +1523,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1626,7 +1626,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1745,7 +1745,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1850,7 +1850,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -1969,7 +1969,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2090,7 +2090,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2193,7 +2193,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2292,7 +2292,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2377,7 +2377,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2462,7 +2462,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2572,7 +2572,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2671,7 +2671,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2756,7 +2756,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2841,7 +2841,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -2946,7 +2946,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -3035,7 +3035,7 @@
                "bars": false,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -3134,7 +3134,7 @@
                "bars": true,
                "dashLength": 10,
                "dashes": false,
-               "datasource": "Prometheus",
+               "datasource": "rbkm-elasticsearch",
                "fill": 1,
                "gridPos": {
                   "h": 5,
@@ -3249,7 +3249,7 @@
          {
             "allValue": null,
             "current": { },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 0,
             "includeAll": false,
             "label": "K8S Namespace",
@@ -3272,7 +3272,7 @@
                "text": "invoice",
                "value": "invoice"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 0,
             "includeAll": false,
             "label": "MG Namespace",
@@ -3316,7 +3316,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Pod",
@@ -3339,7 +3339,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Scheduler Name",
@@ -3362,7 +3362,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Storage Name",
@@ -3385,7 +3385,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Storage Operation Name",
@@ -3408,7 +3408,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Riak Pool Name",
@@ -3431,7 +3431,7 @@
                "text": "all",
                "value": "$__all"
             },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 2,
             "includeAll": true,
             "label": "Processing Impact",

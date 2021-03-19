@@ -16,7 +16,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -129,7 +129,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -278,7 +278,7 @@
          "bars": false,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -375,7 +375,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -476,7 +476,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -632,7 +632,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -733,7 +733,7 @@
          "bars": true,
          "dashLength": 10,
          "dashes": false,
-         "datasource": "Prometheus",
+         "datasource": "rbkm-elasticsearch",
          "fill": 1,
          "gridPos": {
             "h": 5,
@@ -852,7 +852,7 @@
          {
             "allValue": null,
             "current": { },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 0,
             "includeAll": false,
             "label": "Namespace",
@@ -872,7 +872,7 @@
          {
             "allValue": null,
             "current": { },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 0,
             "includeAll": false,
             "label": "Service",
@@ -892,7 +892,7 @@
          {
             "allValue": null,
             "current": { },
-            "datasource": "Prometheus",
+            "datasource": "rbkm-elasticsearch",
             "hide": 0,
             "includeAll": false,
             "label": "Pod",
