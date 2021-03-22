@@ -802,7 +802,7 @@
             "total": false,
             "values": false
          },
-         "lines": false,
+         "lines": true,
          "linewidth": 1,
          "links": [ ],
          "maxPerRow": "3",
