@@ -18,6 +18,25 @@
    "links": [ ],
    "panels": [
       {
+         "collapse": false,
+         "collapsed": false,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "panels": [ ],
+         "repeat": null,
+         "repeatIteration": null,
+         "repeatRowId": null,
+         "showTitle": true,
+         "title": "summary",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
          "aliasColors": {
             "getfsm time 50": "#629e51",
             "getfsm time 95": "#eab839",
@@ -42,7 +61,13 @@
          "dashes": false,
          "datasource": "rbkm-graphite",
          "fill": 0,
-         "id": 2,
+         "gridPos": {
+            "h": 5,
+            "w": 6,
+            "x": 0,
+            "y": 0
+         },
+         "id": 3,
          "legend": {
             "alignAsTable": false,
             "avg": false,
