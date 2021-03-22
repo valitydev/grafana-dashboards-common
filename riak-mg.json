@@ -31,7 +31,7 @@
             "time 99 max": "#e24d42",
             "time 99 min": "#e24d42"
          },
-         "bars": false,
+         "bars": true,
          "dashLength": 10,
          "dashes": false,
          "datasource": null,
@@ -49,7 +49,7 @@
             "total": false,
             "values": false
          },
-         "lines": true,
+         "lines": false,
          "linewidth": 1,
          "links": [ ],
          "nullPointMode": "null",
