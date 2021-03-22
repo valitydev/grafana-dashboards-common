@@ -71,7 +71,6 @@
          "steppedLine": false,
          "targets": [
             {
-               "datasource": "rbkm-graphite",
                "hide": false,
                "refId": "A",
                "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_reads, '.*(mg[0-9]).*(vnode_index_reads.*)', '\\1 \\2')",
