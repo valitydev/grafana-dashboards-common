@@ -99,14 +99,14 @@
             {
                "hide": false,
                "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_reads, '.*(mg[0-9]).*(vnode_index_reads.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-$summaryMetric, '.*(mg[0-9]).*($summaryMetric$.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "summaryMetric",
+         "title": "$summaryMetric",
          "tooltip": {
             "shared": true,
             "sort": 0,
