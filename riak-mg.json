@@ -65,11 +65,11 @@
          "steppedLine": false,
          "targets": [
             {
-               "expr": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_reads, '.*(mg[0-9]).*(vnode_index_reads.*)', '\\1 \\2')",
-               "format": "time_series",
-               "intervalFactor": 2,
-               "legendFormat": "",
-               "refId": "A"
+               "datasource": "rbkm-graphite",
+               "hide": false,
+               "refId": "A",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_reads, '.*(mg[0-9]).*(vnode_index_reads.*)', '\\1 \\2')",
+               "textEditor": false
             }
          ],
          "thresholds": [ ],
