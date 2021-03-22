@@ -10,6 +10,105 @@
    "hideControls": false,
    "id": null,
    "links": [ ],
+   "panels": [
+      {
+         "aliasColors": {
+            "getfsm time 50": "#629e51",
+            "getfsm time 95": "#eab839",
+            "getfsm time 99": "#ea6460",
+            "mg1 node_puts": "#0a437c",
+            "mg1 time_95": "#629e51",
+            "mg1 time_99": "#eab839",
+            "node gets": "#447ebc",
+            "node puts": "#0a50a1",
+            "putfsm time 50": "#629e51",
+            "putfsm time 95": "#eab839",
+            "putfsm time 99": "#ea6460",
+            "time 50 max": "#508642",
+            "time 50 min": "#508642",
+            "time 95 max": "#e5ac0e",
+            "time 95 min": "#e5ac0e",
+            "time 99 max": "#e24d42",
+            "time 99 min": "#e24d42"
+         },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-graphite",
+         "fill": 1,
+         "id": 2,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "repeatDirection": "h",
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": true,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_reads, '.*(mg[0-9]).*(vnode_index_reads.*)', '\\1 \\2')",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{change}}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "vnode_index_reads",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      }
+   ],
    "refresh": "1m",
    "rows": [ ],
    "schemaVersion": 14,
