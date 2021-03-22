@@ -701,17 +701,17 @@
             {
                "alias": "/99/",
                "color": "#e0752d",
-               "legend": "false"
+               "legend": false
             },
             {
                "alias": "/95/",
                "color": "#e5ac0e",
-               "legend": "false"
+               "legend": false
             },
             {
                "alias": "/mean/",
                "color": "#629e51",
-               "legend": "false"
+               "legend": false
             }
          ],
          "spaceLength": 10,
