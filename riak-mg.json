@@ -40,7 +40,7 @@
          "bars": false,
          "dashLength": 10,
          "dashes": false,
-         "datasource": null,
+         "datasource": "rbkm-graphite",
          "fill": 0,
          "id": 2,
          "legend": {
