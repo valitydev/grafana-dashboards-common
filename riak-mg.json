@@ -700,15 +700,18 @@
             },
             {
                "alias": "/99/",
-               "color": "#e0752d"
+               "color": "#e0752d",
+               "legend": "false"
             },
             {
                "alias": "/95/",
-               "color": "#e5ac0e"
+               "color": "#e5ac0e",
+               "legend": "false"
             },
             {
                "alias": "/mean/",
-               "color": "#629e51"
+               "color": "#629e51",
+               "legend": "false"
             }
          ],
          "spaceLength": 10,
