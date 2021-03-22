@@ -674,7 +674,7 @@
             "show": true,
             "sideWidth": null,
             "total": false,
-            "values": false
+            "values": true
          },
          "lines": true,
          "linewidth": 1,
@@ -724,13 +724,13 @@
             {
                "hide": false,
                "refId": "B",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_99, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_99, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
@@ -760,7 +760,7 @@
          },
          "yaxes": [
             {
-               "format": "ms",
+               "format": "short",
                "label": null,
                "logBase": 1,
                "max": null,
@@ -768,7 +768,7 @@
                "show": true
             },
             {
-               "format": "opm",
+               "format": "ms",
                "label": null,
                "logBase": 1,
                "max": null,
