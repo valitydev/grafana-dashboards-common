@@ -83,12 +83,13 @@
          "lines": true,
          "linewidth": 1,
          "links": [ ],
+         "maxPerRow": "4",
          "nullPointMode": "null",
          "percentage": false,
          "pointradius": 5,
          "points": false,
          "renderer": "flot",
-         "repeat": null,
+         "repeat": "summaryMetric",
          "repeatDirection": "h",
          "seriesOverrides": [ ],
          "spaceLength": 10,
@@ -105,619 +106,7 @@
          "thresholds": [ ],
          "timeFrom": null,
          "timeShift": null,
-         "title": "vnode_index_reads",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 4,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_gets, '.*(mg[0-9]).*(node_gets.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "node_gets",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 5,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.counter-vnode_gets_total, '.*(mg[0-9]).*(vnode_gets_total.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "vnode_gets_total",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 6,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-pbc_active, '.*(mg[0-9]).*(pbc_active.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "pbc_active",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 7,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-vnode_index_writes, '.*(mg[0-9]).*(vnode_index_writes.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "vnode_index_writes",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 8,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_puts, '.*(mg[0-9]).*(node_puts.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "node_puts",
-         "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-         },
-         "type": "graph",
-         "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [ ]
-         },
-         "yaxes": [
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            },
-            {
-               "format": "short",
-               "label": null,
-               "logBase": 1,
-               "max": null,
-               "min": 0,
-               "show": true
-            }
-         ]
-      },
-      {
-         "aliasColors": {
-            "getfsm time 50": "#629e51",
-            "getfsm time 95": "#eab839",
-            "getfsm time 99": "#ea6460",
-            "mg1 node_puts": "#0a437c",
-            "mg1 time_95": "#629e51",
-            "mg1 time_99": "#eab839",
-            "node gets": "#447ebc",
-            "node puts": "#0a50a1",
-            "putfsm time 50": "#629e51",
-            "putfsm time 95": "#eab839",
-            "putfsm time 99": "#ea6460",
-            "time 50 max": "#508642",
-            "time 50 min": "#508642",
-            "time 95 max": "#e5ac0e",
-            "time 95 min": "#e5ac0e",
-            "time 99 max": "#e24d42",
-            "time 99 min": "#e24d42"
-         },
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "datasource": "rbkm-graphite",
-         "fill": 0,
-         "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 0
-         },
-         "id": 9,
-         "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "sideWidth": null,
-            "total": false,
-            "values": false
-         },
-         "lines": true,
-         "linewidth": 1,
-         "links": [ ],
-         "nullPointMode": "null",
-         "percentage": false,
-         "pointradius": 5,
-         "points": false,
-         "renderer": "flot",
-         "repeat": null,
-         "repeatDirection": "h",
-         "seriesOverrides": [ ],
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "hide": false,
-               "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.counter-vnode_puts_total, '.*(mg[0-9]).*(vnode_puts_total.*)', '\\1 \\2')",
-               "textEditor": false
-            }
-         ],
-         "thresholds": [ ],
-         "timeFrom": null,
-         "timeShift": null,
-         "title": "vnode_puts_total",
+         "title": "summaryMetric",
          "tooltip": {
             "shared": true,
             "sort": 0,
@@ -780,6 +169,55 @@
             "tagsQuery": "",
             "type": "query",
             "useTags": false
+         },
+         {
+            "allValue": null,
+            "current": {
+               "text": "All",
+               "value": "$__all"
+            },
+            "hide": 0,
+            "includeAll": true,
+            "label": null,
+            "multi": false,
+            "name": "summaryMetric",
+            "options": [
+               {
+                  "text": "All",
+                  "value": "$__all"
+               },
+               {
+                  "text": "vnode_index_reads",
+                  "value": "vnode_index_reads"
+               },
+               {
+                  "text": "node_gets",
+                  "value": "node_gets"
+               },
+               {
+                  "text": "vnode_gets_total",
+                  "value": "vnode_gets_total"
+               },
+               {
+                  "text": "pbc_active",
+                  "value": "pbc_active"
+               },
+               {
+                  "text": "vnode_index_writes",
+                  "value": "vnode_index_writes"
+               },
+               {
+                  "text": "node_puts",
+                  "value": "node_puts"
+               },
+               {
+                  "text": "vnode_puts_total",
+                  "value": "vnode_puts_total"
+               }
+            ],
+            "query": "vnode_index_reads,node_gets,vnode_gets_total,pbc_active,vnode_index_writes,node_puts,vnode_puts_total",
+            "refresh": 0,
+            "type": "custom"
          }
       ]
    },
