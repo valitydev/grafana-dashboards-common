@@ -733,7 +733,7 @@
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_get_fsm_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
@@ -882,7 +882,7 @@
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_put_fsm_95, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_put_fsm_95, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
