@@ -768,7 +768,7 @@
                "show": true
             },
             {
-               "format": "microseconds",
+               "format": "µs",
                "label": null,
                "logBase": 1,
                "max": null,
