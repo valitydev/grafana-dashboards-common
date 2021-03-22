@@ -733,13 +733,162 @@
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_get_fsm_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "D",
                "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_mean, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "transparent": true,
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "µs",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
+      },
+      {
+         "collapse": false,
+         "collapsed": false,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 49
+         },
+         "id": 12,
+         "panels": [ ],
+         "repeat": null,
+         "repeatIteration": null,
+         "repeatRowId": null,
+         "showTitle": true,
+         "title": "puts @ node",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-graphite",
+         "fill": 0,
+         "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 0,
+            "y": 50
+         },
+         "id": 13,
+         "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "maxPerRow": "3",
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": "instance",
+         "repeatDirection": "h",
+         "seriesOverrides": [
+            {
+               "alias": "/time/",
+               "yaxis": 2
+            },
+            {
+               "alias": "/puts/",
+               "bars": true,
+               "color": "#0a437c",
+               "lines": false
+            },
+            {
+               "alias": "/99/",
+               "color": "#e0752d",
+               "legend": false
+            },
+            {
+               "alias": "/95/",
+               "color": "#e5ac0e",
+               "legend": false
+            },
+            {
+               "alias": "/mean/",
+               "color": "#629e51",
+               "legend": false
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "hide": false,
+               "refId": "A",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_puts, '.*(mg[0-9]).*(node_puts.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "B",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_put_fsm_time_99, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "C",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_put_fsm_95, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "D",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_put_fsm_time_mean, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
