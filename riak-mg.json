@@ -665,13 +665,13 @@
          },
          "id": 11,
          "legend": {
-            "alignAsTable": false,
+            "alignAsTable": true,
             "avg": false,
-            "current": false,
+            "current": true,
             "max": false,
             "min": false,
             "rightSide": false,
-            "show": false,
+            "show": true,
             "sideWidth": null,
             "total": false,
             "values": false
