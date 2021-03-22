@@ -775,6 +775,133 @@
          "title": "gets @ node",
          "titleSize": "h6",
          "type": "row"
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-graphite",
+         "fill": 1,
+         "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 0,
+            "y": 13
+         },
+         "id": 11,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": false,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "maxPerRow": "3",
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": "instance",
+         "repeatDirection": "h",
+         "seriesOverrides": [
+            {
+               "alias": "/time/",
+               "yaxis": 2
+            },
+            {
+               "alias": "/gets/",
+               "bars": true,
+               "color": "#0a437c",
+               "lines": false
+            },
+            {
+               "alias": "/99/",
+               "color": "#e0752d"
+            },
+            {
+               "alias": "/95/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/mean/",
+               "color": "#629e51"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "hide": false,
+               "refId": "A",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_gets, '.*(mg[0-9]).*(node_gets.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "B",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_95, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "C",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_99, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "D",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_mean, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
+               "textEditor": false
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "transparent": true,
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "opm",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
       }
    ],
    "refresh": "1m",
