@@ -1102,7 +1102,7 @@
             "show": true,
             "sideWidth": null,
             "total": false,
-            "values": false
+            "values": true
          },
          "lines": true,
          "linewidth": 1,
@@ -1147,7 +1147,7 @@
          },
          "yaxes": [
             {
-               "format": "µs",
+               "format": "short",
                "label": null,
                "logBase": 1,
                "max": null,
