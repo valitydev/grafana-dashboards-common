@@ -739,7 +739,7 @@
             {
                "hide": false,
                "refId": "D",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_mean, '.*($(hostMask)s).*get_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_time_mean, '.*(mg[0-9]).*get_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
@@ -888,7 +888,7 @@
             {
                "hide": false,
                "refId": "D",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_put_fsm_time_mean, '.*($(hostMask)s).*put_fsm_(time_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_put_fsm_time_mean, '.*(mg[0-9]).*put_fsm_(time_.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
@@ -1006,19 +1006,19 @@
             {
                "hide": false,
                "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_100, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_100, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "B",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_99, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_99, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_median, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_median, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
@@ -1115,7 +1115,12 @@
          "renderer": "flot",
          "repeat": "instance",
          "repeatDirection": "h",
-         "seriesOverrides": [ ],
+         "seriesOverrides": [
+            {
+               "alias": "/objsize_median/",
+               "color": "#629e51"
+            }
+         ],
          "spaceLength": 10,
          "stack": false,
          "steppedLine": false,
@@ -1123,7 +1128,7 @@
             {
                "hide": false,
                "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-pbc_active, '.*($(hostMask)s).*(pbc_active.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-pbc_active, '.*(mg[0-9]).*(pbc_active.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
