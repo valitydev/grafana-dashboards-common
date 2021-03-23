@@ -928,6 +928,136 @@
                "show": true
             }
          ]
+      },
+      {
+         "collapse": false,
+         "collapsed": false,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 63
+         },
+         "id": 14,
+         "panels": [ ],
+         "repeat": null,
+         "repeatIteration": null,
+         "repeatRowId": null,
+         "showTitle": true,
+         "title": "objsize @ node",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "aliasColors": { },
+         "bars": true,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-graphite",
+         "fill": 0,
+         "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 0,
+            "y": 64
+         },
+         "id": 15,
+         "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": false,
+         "linewidth": 1,
+         "links": [ ],
+         "maxPerRow": "3",
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": "instance",
+         "repeatDirection": "h",
+         "seriesOverrides": [
+            {
+               "alias": "/objsize_median/",
+               "color": "#629e51"
+            },
+            {
+               "alias": "/objsize_99/",
+               "color": "#e5ac0e"
+            },
+            {
+               "alias": "/objsize_100/",
+               "color": "#e24d42"
+            }
+         ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "hide": false,
+               "refId": "A",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_100, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "B",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_99, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "textEditor": false
+            },
+            {
+               "hide": false,
+               "refId": "C",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_median, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "textEditor": false
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "transparent": true,
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "decbytes",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": 0,
+               "show": true
+            }
+         ]
       }
    ],
    "refresh": "1m",
