@@ -1006,19 +1006,19 @@
             {
                "hide": false,
                "refId": "A",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_100, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_100, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "B",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_99, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_99, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             },
             {
                "hide": false,
                "refId": "C",
-               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_median, '.*(mg[0-9]).*get_fsm_(objsize_.*)', '\\1 \\2')",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-node_get_fsm_objsize_median, '.*($(hostMask)s).*get_fsm_(objsize_.*)', '\\1 \\2')",
                "textEditor": false
             }
          ],
@@ -1045,6 +1045,111 @@
                "format": "decbytes",
                "label": null,
                "logBase": 2,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "collapse": false,
+         "collapsed": false,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 90
+         },
+         "id": 16,
+         "panels": [ ],
+         "repeat": null,
+         "repeatIteration": null,
+         "repeatRowId": null,
+         "showTitle": true,
+         "title": "pb connections @ node",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "rbkm-graphite",
+         "fill": 0,
+         "gridPos": {
+            "h": 9,
+            "w": 8,
+            "x": 0,
+            "y": 91
+         },
+         "id": 17,
+         "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "total": false,
+            "values": false
+         },
+         "lines": true,
+         "linewidth": 1,
+         "links": [ ],
+         "maxPerRow": "3",
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": "instance",
+         "repeatDirection": "h",
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "hide": false,
+               "refId": "A",
+               "target": "aliasSub(collectd.$instance.curl_json-riak.gauge-pbc_active, '.*($(hostMask)s).*(pbc_active.*)', '\\1 \\2')",
+               "textEditor": false
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "transparent": true,
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "µs",
+               "label": null,
+               "logBase": 1,
                "max": null,
                "min": null,
                "show": true
